@@ -1,6 +1,12 @@
 import { type NextRequest, NextResponse } from "next/server"
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+type Params = {
+  params: {
+    id: string
+  }
+}
+
+export async function GET(request: NextRequest, { params }: Params) {
   try {
     const { id } = params
 
