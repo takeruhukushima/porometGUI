@@ -25,8 +25,5 @@ COPY . .
 # ポートを公開
 EXPOSE $PORT
 
-# ヘルスチェック用のエンドポイントを追加
-RUN echo 'from fastapi import FastAPI; app = FastAPI(); @app.get("/health") async def health_check(): return {"status": "ok"}' > /app/health_check.py
-
 # アプリケーションを起動
-CMD ["sh", "-c", "uvicorn backend.server:app --host 0.0.0.0 --port $PORT --reload"]
+CMD ["sh", "-c", "uvicorn backend.server:app --host 0.0.0.0 --port $PORT --reload --log-level debug"]
