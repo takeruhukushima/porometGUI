@@ -9,15 +9,12 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/backend/server.py"
+        "dest": "/backend/server.py"
     }
   ],
   "build": {
     "env": {
-      "PYTHON_VERSION": "3.11",
-      "PIP_INDEX_URL": "https://pypi.org/simple",
-      "PIP_PREFER_BINARY": "1",
-      "NPM_CONFIG_PYTHON": "/opt/hostedtoolcache/Python/3.11.9/x64/bin/python3.11"
+      "PYTHON_VERSION": "3.9"
     }
   },
   "installCommand": "python -m pip install --upgrade pip setuptools wheel && python -m pip install --no-cache-dir -r backend/requirements.txt"
