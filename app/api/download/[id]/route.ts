@@ -1,15 +1,15 @@
 import { type NextRequest, NextResponse } from "next/server"
 
 type Params = {
-  id: string;
-};
+  id: string
+}
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Params }
+  context: { params: { id: string } }
 ) {
   try {
-    const { id } = params
+    const { id } = context.params
 
     // Generate mock CSV data
     const csvContent = [
