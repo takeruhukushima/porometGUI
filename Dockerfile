@@ -22,8 +22,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # アプリケーションのコードをコピー
 COPY . .
 
+# 起動スクリプトを実行可能に
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
+
 # ポートを公開
 EXPOSE $PORT
 
 # アプリケーションを起動
-CMD ["sh", "-c", "uvicorn backend.server:app --host 0.0.0.0 --port $PORT --reload --log-level debug"]
+CMD ["/app/start.sh"]
