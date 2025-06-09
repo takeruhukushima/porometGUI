@@ -6,10 +6,10 @@ type Params = {
 
 export async function GET(
   request: NextRequest,
-  context: { params: Params }
+  { params }: { params: Params }
 ) {
   try {
-    const { id } = context.params
+    const { id } = params
 
     // Generate mock CSV data
     const csvContent = [
