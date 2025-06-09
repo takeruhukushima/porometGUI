@@ -1,3 +1,13 @@
+# Node.jsの公式イメージをベースに使用
+FROM node:20 AS frontend-builder
+
+# フロントエンドのビルド
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend/ .
+RUN npm run build
+
 # Pythonの公式イメージをベースに使用
 FROM python:3.12-slim
 
@@ -15,12 +25,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# 依存関係をインストール
+# バックエンドの依存関係をインストール
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# アプリケーションのコードをコピー
+# バックエンドのコードをコピー
 COPY . .
+
+# フロントエンドのビルド済みファイルをコピー
+COPY --from=frontend-builder /app/frontend/.next /app/frontend/.next
+COPY --from=frontend-builder /app/frontend/public /app/frontend/public
 
 # 起動スクリプトを実行可能に
 COPY start.sh /app/start.sh
