@@ -1,9 +1,25 @@
+--find-links https://download.pytorch.org/whl/torch_stable.html
+--find-links https://pypi.org/simple/
+--extra-index-url https://pypi.org/simple/
+
+# Core dependencies
 setuptools>=58.0.0
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 python-multipart==0.0.6
-porespy==2.3.0
+
+# Scientific computing
 numpy==1.24.3
-matplotlib==3.7.2
-scikit-image==0.21.0
+
+# Image processing
 Pillow==10.0.0
+scikit-image==0.21.0
+
+# Visualization
+matplotlib==3.7.2
+
+# Pore analysis
+porespy==2.3.0
+
+# Vercel specific
+pycryptodome==3.20.0  # Required by some dependencies
