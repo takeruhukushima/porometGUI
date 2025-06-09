@@ -1,0 +1,30 @@
+# Backend files
+/backend/**
+
+# Python files
+*.py
+*.pyc
+__pycache__/
+
+# Environment variables (handled by Vercel)
+.env
+.env.local
+
+# Build outputs
+.next/
+node_modules/
+
+# Logs
+*.log
+
+# Local development
+.DS_Store
+.vercel
+
+# Dependencies
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
