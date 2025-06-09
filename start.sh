@@ -15,8 +15,10 @@ echo "=== アプリケーションを起動します ==="
 # バックエンドをバックグラウンドで起動
 uvicorn backend.server:app --host 0.0.0.0 --port $PORT --log-level debug &
 
-# フロントエンドを起動
-cd /app/frontend && npx next start -p 3000 &
+# フロントエンドのビルドと起動
+cd /app
+npm run build
+npm run start -- -p 3000 &
 
 # 両方のプロセスが終了するのを待機
 wait

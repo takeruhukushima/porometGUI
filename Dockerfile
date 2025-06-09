@@ -2,10 +2,10 @@
 FROM node:20 AS frontend-builder
 
 # フロントエンドのビルド
-WORKDIR /app/frontend
-COPY frontend/package*.json ./
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
-COPY frontend/ .
+COPY . .
 RUN npm run build
 
 # Pythonの公式イメージをベースに使用

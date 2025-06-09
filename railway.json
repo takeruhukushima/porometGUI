@@ -7,13 +7,5 @@
   "deploy": {
     "startCommand": "/app/start.sh",
     "healthcheckPath": "/api/health"
-  },
-  "ports": [
-    {
-      "name": "http",
-      "port": 3000,
-      "httpPath": "/",
-      "httpMethod": "GET"
-    }
-  ]
+  }
 }
