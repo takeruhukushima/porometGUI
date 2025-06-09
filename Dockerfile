@@ -33,8 +33,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # フロントエンドのビルド済みファイルをコピー
-COPY --from=frontend-builder /app/frontend/.next /app/frontend/.next
-COPY --from=frontend-builder /app/frontend/public /app/frontend/public
+COPY --from=frontend-builder /app/.next /app/.next
+COPY --from=frontend-builder /app/public /app/public
 
 # 起動スクリプトを実行可能に
 COPY start.sh /app/start.sh
