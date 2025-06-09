@@ -1,0 +1,22 @@
+# Core dependencies
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6
+
+# Scientific computing
+numpy>=1.26.0
+
+# Image processing
+Pillow>=10.0.0
+
+# Vercel specific
+pycryptodome>=3.20.0
+
+# Build dependencies
+setuptools>=69.0.0
+wheel>=0.42.0
+
+# Optional: Uncomment only if absolutely necessary
+# scikit-image>=0.22.0
+# matplotlib>=3.8.0
+# porespy>=2.3.0
