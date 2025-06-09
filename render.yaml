@@ -3,18 +3,17 @@ services:
   - type: web
     name: poromet-backend
     env: python
-    region: tokyo  # 東京リージョンを指定
-    repo: https://github.com/takeruhukushima/porometGUI  # あなたのリポジトリURL
+    region: tokyo
+    repo: https://github.com/takeruhukushima/porometGUI
     branch: main
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: uvicorn backend.server:app --host 0.0.0.0 --port $PORT
+    rootDirectory: /backend  # バックエンドディレクトリをルートとして指定
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.0
-      # 必要に応じて追加の環境変数を設定
-      # - key: DATABASE_URL
-      #   value: your-database-url
     plan: free
-    autoDeploy: true  # GitHubにプッシュしたら自動デプロイ
+    autoDeploy: true
     numInstances: 1
-    healthCheckPath: /docs  # FastAPIのドキュメントページをヘルスチェックに使用
+    ignoreFile: .gitignore
+    healthCheckPath: /docs
